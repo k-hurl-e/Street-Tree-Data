@@ -4,7 +4,7 @@ from nta_lists import boro_lists
 # from config import TOKEN
 import os
 
-TOKEN = os.environ['TOKEN']
+TOKEN = os.environ['NAME']
 
 client = Socrata("data.cityofnewyork.us", TOKEN)
 results = client.get("uvpi-gqnh", limit=2000)
