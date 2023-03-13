@@ -34,11 +34,12 @@ def nta_table_maker(nta, row_length):
 
     cap_dict = dict(zip(captrees, list(treecount.values())))
     treecount_sorted = dict(sorted(cap_dict.items(), key=lambda x: x[1], reverse=True))
-
+    if 'Nan' in treecount_sorted:
+        treecount_sorted.pop('Nan')
     trees_df_raw = pd.DataFrame.from_dict(treecount_sorted)
     trees_df = trees_df_raw.T
     trees_df.rename(columns={0: 'Number of Trees'}, inplace=True)
-    trees_df.drop(['Nan'], 0, inplace=True)
+    # trees_df.drop(['Nan'], 0, inplace=True)
     trees = trees_df.head(row_length)
     trees_html = trees.to_html()
     return(trees_html)

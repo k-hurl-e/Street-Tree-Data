@@ -1,5 +1,6 @@
 from flask_frozen import Freezer
 from app import app
+import pandas as pd
 
 freezer = Freezer(app)
 
