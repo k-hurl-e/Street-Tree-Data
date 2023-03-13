@@ -16,7 +16,7 @@ def pick_nta():
        return redirect(url_for('results', table=table, nta_select=nta_select))
     return render_template("index.html", boro_lists=boro_lists)
 
-@app.route('/results')
+@app.route('/results/')
 def results():
     table = Markup(request.args.get('table', None))
     nta_select = request.args.get('nta_select', None)
