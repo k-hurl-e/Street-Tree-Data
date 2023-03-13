@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- iOS Safari -->
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <!-- Chrome, Firefox OS and Opera Status Bar Color -->
+        <meta name="theme-color" content="#FFFFFF">
+        <title>NYC Street Tree Data</title>
+        <link rel="stylesheet" type="text/css" href="/static/style.css">
+    </head>
+    <body>
+        <main>
+            <h1>Street Tree Data</h1>
+            <h3>The most common trees in {{ nta_select }}:</h3>
+            {{ table }} 
+        </main>
+        <footer>
+            <p>website by <a href="https://www.sansevier.io">sansevier.io</a></p>
+        </footer>
+    </body>
+</html>

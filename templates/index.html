@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- iOS Safari -->
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <!-- Chrome, Firefox OS and Opera Status Bar Color -->
+        <meta name="theme-color" content="#FFFFFF">
+        <title>NYC Street Tree Data</title>
+        <link rel="stylesheet" type="text/css" href="/static/style.css">
+    </head>
+    <body>
+        <main>
+            <h1>Street Tree Data</h1>
+            <form action="{{ url_for('pick_nta') }}" method="post">
+                <label for="Neighborhood">Select Neighborhood:</label>
+                <select name="Neighborhood">
+                    {% for n in boro_lists['all_ntas'] %}
+                    <option value="{{ n }}"">{{ n }}</option> 
+                    {% endfor %} 
+                </select>
+                <input type="submit">
+            </form>  
+        </main>
+        <footer>
+            <p>website by <a href="https://www.sansevier.io">sansevier.io</a></p>
+        </footer>
+    </body>
+</html>
