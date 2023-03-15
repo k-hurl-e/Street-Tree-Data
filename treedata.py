@@ -1,9 +1,10 @@
 import pandas as pd
 from sodapy import Socrata
 from nta_lists import boro_lists
-from config import TOKEN
-# import os
+# from config import TOKEN
 
+# Netlify
+# import os
 # TOKEN = os.environ['TOKEN']
 
 client = Socrata("data.cityofnewyork.us", TOKEN)
