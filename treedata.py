@@ -8,7 +8,7 @@ import os
 TOKEN = os.environ['TOKEN']
 
 client = Socrata("data.cityofnewyork.us", TOKEN)
-results = client.get("uvpi-gqnh", limit=800000)
+results = client.get("uvpi-gqnh", limit=2000)
 
 # Convert to pandas DataFrame
 results_df = pd.DataFrame.from_records(results)
