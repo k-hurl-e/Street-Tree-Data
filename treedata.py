@@ -1,31 +1,32 @@
 import pandas as pd
 from sodapy import Socrata
 from nta_lists import boro_lists
-# from config import TOKEN
+from config import TOKEN
 
 # Netlify
 import os
-TOKEN = os.environ['TOKEN']
+# TOKEN = os.environ['TOKEN']
 
-client = Socrata("data.cityofnewyork.us", TOKEN)
-results = client.get("uvpi-gqnh", limit=2000)
 
-# Convert to pandas DataFrame
-results_df = pd.DataFrame.from_records(results)
-
-pd.set_option('display.max_columns', None)
-pd.set_option('display.max_rows', None)
-
-droplist = []
-keepers = ['tree_id', 'spc_common', 'spc_latin', 'health', 'status','boroname', 'nta_name']
-
-for label, content in results_df.items():
-   if label not in keepers:
-     droplist.append(label)
-
-df = results_df.drop(droplist, 1)
 
 def nta_table_maker(nta, row_length):
+    client = Socrata("data.cityofnewyork.us", TOKEN)
+    results = client.get("uvpi-gqnh", nta_name=nta, limit=800000)
+
+    # Convert to pandas DataFrame
+    results_df = pd.DataFrame.from_records(results)
+
+    pd.set_option('display.max_columns', None)
+    pd.set_option('display.max_rows', None)
+
+    droplist = []
+    keepers = ['tree_id', 'spc_common', 'spc_latin', 'health', 'status','boroname', 'nta_name']
+
+    for label, content in results_df.items():
+        if label not in keepers:
+            droplist.append(label)
+
+    df = results_df.drop(droplist, 1)
     neighborhood_df = df[(df.nta_name == nta)]
     treecount = {}
     captrees = []
