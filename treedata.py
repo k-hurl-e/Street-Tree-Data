@@ -1,11 +1,11 @@
 import pandas as pd
 from sodapy import Socrata
 from nta_lists import boro_lists
-# from config import TOKEN
+from config import TOKEN
 
 # Netlify
 import os
-TOKEN = os.environ['TOKEN']
+# TOKEN = os.environ['TOKEN']
 
 
 
@@ -28,6 +28,7 @@ def nta_table_maker(nta, row_length):
 
     df = results_df.drop(droplist, 1)
     neighborhood_df = df[(df.nta_name == nta)]
+    print(neighborhood_df.tree_id.nunique())
     treecount = {}
     captrees = []
     for index, row in neighborhood_df.iterrows():
