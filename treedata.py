@@ -1,11 +1,11 @@
 import pandas as pd
 from sodapy import Socrata
 from nta_lists import boro_lists
-from config import TOKEN
+# from config import TOKEN
 
-# Netlify
+# Netlify / Heroku
 import os
-# TOKEN = os.environ['TOKEN']
+TOKEN = os.environ['TOKEN']
 
 
 
