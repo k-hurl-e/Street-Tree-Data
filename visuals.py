@@ -1,10 +1,11 @@
 import matplotlib.pyplot as plt
 from PIL import Image
 from treedata import nta_pie_data
+from nta_lists import boro_lists
 
-colors_custom = ['#4e4376', '#E09D00', '#50A7C2', '#A1BE37', '#8F4311', "grey"]
+colors_custom = ['#665687', '#FFC4D1', '#50A7C2', '#DC2E3F', '#99CA7D', '#646165']
 
-def makecroppedpie(file_name, labels_lst, values_lst, colors_lst):
+def makepie(file_name, labels_lst, values_lst, colors_lst):
         plt.rcParams['font.family'] = 'monospace'
         plt.rcParams['text.color'] = 'black'
         labels = labels_lst
@@ -24,5 +25,9 @@ def makecroppedpie(file_name, labels_lst, values_lst, colors_lst):
         # croppedImage = img.crop(box)
         # croppedImage.save('static/' + file_name + '_cropped.png')
 
-check = nta_pie_data('Bedford')
-makecroppedpie('test6', check[0], check[1], colors_custom)
+def bakery():
+        for n in boro_lists['all_ntas']:
+                x = nta_pie_data(n)
+                makepie(n, x[0], x[1], colors_custom)
+
+# bakery()
