@@ -27,7 +27,7 @@ Street-Tree-Data is a web application designed to display the most common street
     ```
 
 ## Usage
-- Access the web app in your browser at `http://localhost:5000`.
+- Access the web app in your browser.
 - Enter a neighborhood to view the most common street trees in that area.
 
 ## Project Structure
